@@ -1,1 +1,1 @@
-export const requestUrl = "http://localhost:3000/";
+export const user_manager_url = "http://localhost:3020/";

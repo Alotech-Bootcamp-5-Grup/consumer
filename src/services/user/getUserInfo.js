@@ -1,6 +1,6 @@
 import axios from "axios";
 import { authHeader } from "../../helpers/auth-header";
-import { requestUrl } from "../../helpers/requestUrl";
+import { user_manager_url } from "../../helpers/requestUrl";
 
 export default async function getUserInfo(userId) {
   // let access_token = JSON.parse(localStorage.getItem('access_token'));
@@ -8,7 +8,7 @@ export default async function getUserInfo(userId) {
   try {
     const res = await axios({
       method: "get",
-      url: requestUrl + "user/" + userId,
+      url: user_manager_url + "user/" + userId,
       headers: authHeader(),
     })
     return res.data;
