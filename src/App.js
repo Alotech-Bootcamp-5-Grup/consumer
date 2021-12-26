@@ -14,7 +14,7 @@ export default function App() {
   useEffect(() => {
     const access_token = cookies.get("access_token");
     if (!access_token) {
-      window.location.href = "http://localhost:3011/";
+      window.location.href = "http://localhost:3011/?redirectURL=http://localhost:3000";
     } else {
       isAccessTokenValid(access_token).then((response_data) => {
         if (response_data.response) {
