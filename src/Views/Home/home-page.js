@@ -6,7 +6,7 @@ export default function HomePage() {
   const [userInfo, setUserInfo] = useState({});
   const cookies = new Cookies();
   useEffect(() => {
-    getUserInfo("24").then((data) => {
+    getUserInfo(cookies.get('user_id')).then((data) => {
       setUserInfo(data.userInfo);
     });
   }, []);

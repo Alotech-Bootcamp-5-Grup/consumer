@@ -3,16 +3,20 @@ import Cookies from "universal-cookie";
 
 export default async function isAccessTokenValid(data) {
     const cookies = new Cookies();
-    try {
-        const res = await axios({
-            method: "post",
-            url: "http://localhost:3010/token?redirectURL=http://localhost:3011",
-            data: data,
-            headers: { 'Content-Type': 'application/json' },
-        })
-        cookies.set("access_token", res.data.Access_Token)
-        return res.data;
-    } catch (error) {
-        console.error("error in isAccessTokenValid  " + error.response.data);
-    }
+    var response = await axios.get(`http://localhost:3010/token/?redirectURL=http://localhost:3000`, {
+        headers: { "x-access-token": data }
+    }).then((rsp) => {
+        if (rsp.data.user_type === "USER" || rsp.data.user_type === "ADMIN") {
+            if (rsp.data.Access_Token) {
+                cookies.set("access_token", rsp.data.Access_Token);
+            }
+            return rsp.data;
+        }
+        return "you dont have permission to acces this page";
+
+
+    }).catch((err) => {
+        return err.response.data
+    })
+    return response;
 }

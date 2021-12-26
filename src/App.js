@@ -16,16 +16,20 @@ export default function App() {
     if (!access_token) {
       window.location.href = "http://localhost:3011/";
     } else {
-      isAccessTokenValid()
-      setState(true);
+      isAccessTokenValid(access_token).then((response_data) => {
+        if (response_data.response) {
+          setState(true);
+        }
+      })
+
     }
   }, []);
   return (
     <div>
       {state ? <>
         <h1>Kullanıcı Bilgileri</h1>
-      <HomePage />
-      </>: ""}
+        <HomePage />
+      </> : ""}
     </div>
   );
 
