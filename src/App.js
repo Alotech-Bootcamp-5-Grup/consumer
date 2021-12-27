@@ -1,10 +1,7 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { Link, Navigate } from "react-router-dom";
 import Cookies from "universal-cookie/es6";
 import isAccessTokenValid from "./services/valid_access_token";
 import HomePage from "./Views/Home/home-page";
-import { requestHelper } from "./helpers/requestHelper";
 import { useEffect, useState } from 'react';
 
 export default function App() {

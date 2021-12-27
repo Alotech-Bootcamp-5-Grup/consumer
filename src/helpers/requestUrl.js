@@ -1,1 +1,0 @@
-export const user_manager_url = "http://localhost:3020/";

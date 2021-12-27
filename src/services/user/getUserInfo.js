@@ -1,6 +1,5 @@
 import axios from "axios";
 import { authHeader } from "../../helpers/auth-header";
-import { user_manager_url } from "../../helpers/requestUrl";
 
 export default async function getUserInfo(userId) {
   try {
