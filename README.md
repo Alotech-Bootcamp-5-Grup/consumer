@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# Consumer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bu uygulama, Patika'nın düzenlediği AloTech Fullstack Bootcamp'i bitirme projesinin bir parçasıdır.
 
-## Available Scripts
+#### Grup - 5
+> Eren Tanrıverdioğlu - Furkan Aktaş - Parahat Nepesov - Timur Turbil
 
-In the project directory, you can run:
+## Uygulamanın İşlevi
+Consumer, proje kapsamında geliştirilen SSO Authorization servisiyle haberleşir. Tarayıcıda kayıtlı bir token olmaması durumunda kullanıcıyı SSO servisinin giriş ekranına yöneldirir. Giriş işlemi başarılıysa, yine proje kapsamında geliştirilen User Manager Module'ün user/:user_id endpointine istek göndererek ekranda giriş yapan kullanıcının bilgilerini gösterir.
 
-### `npm start`
+## Teknoloji ve Kütüphaneler
+- React
+- Axios
+- universal-cookie
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Kurulum
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Projeyi klonlayın:
+`git clone https://github.com/Alotech-Bootcamp-5-Grup/consumer.git`
 
-### `npm test`
+- Uygulama klasörüne girin:
+`cd consumer`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Gerekli kütüphaneleri kurun:
+`npm install`
 
-### `npm run build`
+- .env dosyasını oluşturun:
+windows: `rename  .env-sample  .env`
+linux/unix: `mv .env-sample .env`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- .env dosyasındaki değişkenlere gerekli değerleri atayın
+`PORT=`: Ugulamanızın çalışmasını istediğiniz portu belirtin.
+`REACT_APP_TOKEN_VERIFY_URL=`: Uygulamayı girişte, kullanıcın sahip olduğu token'ın geçerliliğini kontrol eden api endpointini belirtin. örn: http://localhost:3010/token/
+`REACT_APP_USER_INFO_URL=`: Uygulamaya giriş yapıldıktan sonra kullanıcı bilgilerinin çekileceği api endpointini belirtin. örn: http://localhost:3020/user/
+`REACT_APP_SSO_CLIENT_URL=`: Uygulamaya giriş yaparken, kayıtlı bir token değerinin olmadığı durumda yönlendirilecek adresi belirtin. örn: http://localhost:3011/
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Uygulamayı çalıştırın:
+`npm start`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Test
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`npm test`
