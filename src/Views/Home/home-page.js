@@ -12,13 +12,26 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div style={{ margin: 10 }}>
-      <div>user_name; {userInfo.user_name}</div>
-      <div>user_surname; {userInfo.user_surname}</div>
-      <div>user_type; {userInfo.user_type}</div>
-      <div>user_email; {userInfo.user_email}</div>
-      <div>user_password; {userInfo.user_password}</div>
-      <button onClick={() => cookies.remove("access_token")}>set access token null</button>
-    </div>
+    <>
+      <div className="card">
+        <h1 className="card-title">Kullanıcı Bilgileri</h1>
+        <div className="card-item">
+          <span className="card-item-title">Username</span> {userInfo.username}
+        </div>
+        <div className="card-item">
+          <span className="card-item-title">Name</span> {userInfo.user_name}
+        </div>
+        <div className="card-item">
+          <span className="card-item-title">Surname</span> {userInfo.user_surname}
+        </div>
+        <div className="card-item">
+          <span className="card-item-title">E-mail</span> {userInfo.user_email}
+        </div>
+        <div className="card-item">
+          <span className="card-item-title">User Type</span> {userInfo.user_type}
+        </div>
+      </div>
+      <button className="clear-cookie" onClick={() => cookies.remove("access_token")}>set access token null</button>
+    </>
   );
 }

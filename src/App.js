@@ -22,9 +22,8 @@ export default function App() {
     }
   }, []);
   return (
-    <div>
+    <div className="container">
       {state ? <>
-        <h1>Kullanıcı Bilgileri</h1>
         <HomePage />
       </> : ""}
     </div>
