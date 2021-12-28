@@ -11,7 +11,7 @@ export default function App() {
   useEffect(() => {
     const access_token = cookies.get("access_token");
     if (!access_token) {
-      window.location.href = "http://localhost:3011/?redirectURL=http://localhost:3000";
+      window.location.href = `${process.env.REACT_APP_SSO_CLIENT_URL}?redirectURL=${window.location.href}`;
     } else {
       isAccessTokenValid(access_token).then((response_data) => {
         if (response_data.response) {
@@ -21,6 +21,7 @@ export default function App() {
 
     }
   }, []);
+  
   return (
     <div className="container">
       {state ? <>
