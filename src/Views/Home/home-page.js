@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <>
       <div className="card">
-        <h1 className="card-title">Kullanıcı Bilgileri</h1>
+        <h1 className="card-title">User Information</h1>
         <div className="card-item">
           <span className="card-item-title">Username</span> {userInfo.username}
         </div>
@@ -31,7 +31,7 @@ export default function HomePage() {
           <span className="card-item-title">User Type</span> {userInfo.user_type}
         </div>
       </div>
-      <button className="clear-cookie" onClick={() => cookies.remove("access_token")}>set access token null</button>
+      <button className="clear-cookie" onClick={() => cookies.remove("access_token")}>Remove AccessToken</button>
     </>
   );
 }
