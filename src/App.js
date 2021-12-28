@@ -1,10 +1,7 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { Link, Navigate } from "react-router-dom";
 import Cookies from "universal-cookie/es6";
 import isAccessTokenValid from "./services/valid_access_token";
 import HomePage from "./Views/Home/home-page";
-import { requestHelper } from "./helpers/requestHelper";
 import { useEffect, useState } from 'react';
 
 export default function App() {
@@ -14,7 +11,7 @@ export default function App() {
   useEffect(() => {
     const access_token = cookies.get("access_token");
     if (!access_token) {
-      window.location.href = "http://localhost:3011/?redirectURL=http://localhost:3000";
+      window.location.href = `${process.env.REACT_APP_SSO_CLIENT_URL}?redirectURL=${window.location.href}`;
     } else {
       isAccessTokenValid(access_token).then((response_data) => {
         if (response_data.response) {
@@ -24,10 +21,10 @@ export default function App() {
 
     }
   }, []);
+  
   return (
-    <div>
+    <div className="container">
       {state ? <>
-        <h1>Kullanıcı Bilgileri</h1>
         <HomePage />
       </> : ""}
     </div>
