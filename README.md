@@ -6,7 +6,7 @@ Bu uygulama, Patika'nın düzenlediği AloTech Fullstack Bootcamp'i bitirme proj
 > Eren Tanrıverdioğlu - Furkan Aktaş - Parahat Nepesov - Timur Turbil
 
 ## Projenin Mimarisi
-![project architecture](https://github.com/Alotech-Bootcamp-5-Grup/user-manager-module/blob/main/project_analysis.jpg)
+![project architecture](https://github.com/Alotech-Bootcamp-5-Grup/user-manager-module/blob/main/proje-diagram.jpg)
 
 ## Uygulamanın İşlevi
 Consumer, proje kapsamında geliştirilen SSO Authorization servisiyle haberleşir. Tarayıcıda kayıtlı bir token olmaması durumunda kullanıcıyı SSO servisinin giriş ekranına yöneldirir. Giriş işlemi başarılıysa, yine proje kapsamında geliştirilen User Manager Module'ün user/:user_id endpointine istek göndererek ekranda giriş yapan kullanıcının bilgilerini gösterir.
