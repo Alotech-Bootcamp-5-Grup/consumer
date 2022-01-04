@@ -5,6 +5,9 @@ import getUserInfo from "../../services/user/getUserInfo";
 export default function HomePage() {
   const [userInfo, setUserInfo] = useState({});
   const cookies = new Cookies();
+
+  // burada kullanıcı bilgilerini login ederken set ettiğimiz kullanıcı idsini getUserInfo servisine 
+  // vererek buradan gelen verileri userInfo değişkenine eşitliyoruz.
   useEffect(() => {
     getUserInfo(cookies.get('user_id')).then((data) => {
       setUserInfo(data.user);
